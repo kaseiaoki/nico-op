@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test firebase</title>
+
+  <script defer src="/__/firebase/4.11.0/firebase-app.js"></script>
+  <script defer src="/__/firebase/4.11.0/firebase-auth.js"></script>
+  <script defer src="/__/firebase/4.11.0/firebase-database.js"></script>
+  <script defer src="/__/firebase/init.js"></script>
+</head>
+<body>
+
+<div>
+  <h2>database test</h2>
+  <p id="preview"></p>
+  <p><input type="text" id="testhoge"></p>
+  <button type="button" onclick="changeData()">更新</button>
+</div>
+
+<div>
+  <h2>auth test</h2>
+  <button type="button" onclick="auth()">Auth</button>
+  <p id="auth-preview"></p>
+</div>
+
+<script>
+    let testDB;
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setupAuth();
+    });
+
+    function setupDatabase() {
+        const db = firebase.database();
+        testDB = db.ref("/test/hoge");
+        testDB.on("value", snapshot => {
+            const val = snapshot.val();
+            if (val) {
+                console.log(val);
+                document.getElementById('preview').innerText = val.text;
+            }
+        });
+    }
+
+    function changeData(){
+        if (testDB) {
+            const text = document.getElementById("testhoge").value;
+            testDB.set({title:"example", text});
+        }
+    }
+
+    function setupAuth() {
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                setupDatabase();
+                console.log(user);
+                document.getElementById('auth-preview').innerText = JSON.stringify({email: user.email});
+            }
+        });
+    }
+
+    function auth() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope('https://www.googleapis.com/auth/userinfo.profile');
+        firebase.auth().languageCode = 'ja';
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            console.log(result);
+            const token = result.credential.accessToken;
+            const user = result.user;
+            console.log({token, user});
+            document.getElementById('auth-preview').innerText = JSON.stringify({email: user.email});
+        }).catch(function(error) {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            const email = error.email;
+            const credential = error.credential;
+            console.log(error);
+            console.log({errorCode, errorMessage, email, credential});
+            document.getElementById('auth-preview').innerText = 'Error. See console log.';
+        });
+    }
+</script>
+</body>
+</html>
