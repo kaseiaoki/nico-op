@@ -1,4 +1,15 @@
 Vue.component('main-section', {
+  computed: {
+    ...Vuex.mapState(['smokes'])
+  },
+  methods: {
+    ...Vuex.mapMutations(['addSmoke'])
+  },
+  watch: {
+    smokes: values => {
+      console.debug('updated smokes', values);
+    }
+  },
   template: `
 <div class="main-section">
   <section class="hero is-dark">
@@ -29,7 +40,7 @@ Vue.component('main-section', {
     <div class="columns">
       <div class="column is-12 is-offset-5">
         <div >
-          <p><button id="smoke_button" class="button is-danger is-large is-rounded">　Smoke</button></p>
+          <p><button id="smoke_button" class="button is-danger is-large is-rounded" @click="addSmoke">　Smoke</button></p>
         </div>
       </div>
     </div>

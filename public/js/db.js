@@ -14,7 +14,7 @@ export class DB extends EventEmitter2 {
     this.db = firebase.database();
 
     this.setting = this.db.ref('setting');
-    this.settings.on('value', snapshot => {
+    this.setting.on('value', snapshot => {
       const setting = new Setting(snapshot.val());
       this.emit(ON_SETTING_UPDATED, {setting});
     });
@@ -39,13 +39,13 @@ export class DB extends EventEmitter2 {
   }
 
   async getUserAll() {
-    const snapshots = this.users.once('value');
-    return snapshots.map(x => new User(x.val()));
+    const snapshots = await this.users.once('value');
+    return snapshots.val() ? Object.values(snapshots.val()).map(x => new User(x.val())) : [];
   }
 
-  getSmokeAll() {
-    const snapshots = this.smokes.once('value');
-    return snapshots.map(x => new Smoke(x.val()));
+  async getSmokeAll() {
+    const snapshots = await this.smokes.once('value');
+    return snapshots.val() ? Object.values(snapshots.val()).map(x => new Smoke(x)) : [];
   }
 
   addSmoke(smoke) {

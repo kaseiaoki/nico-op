@@ -20,6 +20,7 @@ export class ModelBase {
   deserialize() {
     return this.properties.reduce((res, key) => {
       res[key] = this[key];
+      return res;
     }, {});
   }
 }
