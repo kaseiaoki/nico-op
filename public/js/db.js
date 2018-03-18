@@ -29,8 +29,12 @@ export class DB extends EventEmitter2 {
   }
 
   async getSetting() {
-    const snapshot = this.setting.once('value');
+    const snapshot = await this.setting.once('value');
     return new Setting(snapshot.val());
+  }
+
+  setSetting(setting) {
+    this.setting.set(setting.deserialize());
   }
 
   addUser(user) {
