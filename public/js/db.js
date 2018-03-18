@@ -1,6 +1,6 @@
-import { User } from './model/user';
-import { Setting } from './model/setting';
-import { Smoke } from './model/smoke';
+import { User } from './model/user.js';
+import { Setting } from './model/setting.js';
+import { Smoke } from './model/smoke.js';
 
 export const ON_SETTING_UPDATED = 'onSettingUpdated';
 export const ON_SMOKE_ADDED = 'onSmokeAdded';

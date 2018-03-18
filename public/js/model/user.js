@@ -1,4 +1,4 @@
-import { ModelBase } from './model_base';
+import { ModelBase } from './model_base.js';
 
 export class User extends ModelBase {
   get properties() {

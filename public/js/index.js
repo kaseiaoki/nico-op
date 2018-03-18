@@ -1,5 +1,5 @@
-import { DB } from './js/db';
-import { auth, isAuthed, getAuthedUser } from './js/auth';
+import { DB } from './db.js';
+import { auth, isAuthed, getAuthedUser } from './auth.js';
 import { store } from './store.js';
 
 Vue.use(Vuex);

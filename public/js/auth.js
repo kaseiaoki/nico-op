@@ -1,4 +1,4 @@
-import { User } from './model/user';
+import { User } from './model/user.js';
 
 export function isAuthed() {
   return !!firebase.auth().currentUser;
