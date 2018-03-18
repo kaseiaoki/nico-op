@@ -1,0 +1,12 @@
+#smoke_button{
+  position:relative;
+  top: 75px;
+}
+#debt{
+  position:absolute;
+  top: 150px;
+}
+#graph{
+  position:relative;
+  top: 150px;
+}

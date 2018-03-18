@@ -30,3 +30,44 @@
 [info] i  hosting: Serving hosting files from: public
 [info] +  hosting: Local server: http://localhost:5000
 
+[debug] [2018-03-18T05:49:31.941Z] ----------------------------------------------------------------------
+[debug] [2018-03-18T05:49:31.943Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\s1321\AppData\Roaming\npm\node_modules\firebase-tools\bin\firebase serve
+[debug] [2018-03-18T05:49:31.943Z] CLI Version:   3.17.6
+[debug] [2018-03-18T05:49:31.943Z] Platform:      win32
+[debug] [2018-03-18T05:49:31.943Z] Node Version:  v8.9.4
+[debug] [2018-03-18T05:49:31.944Z] Time:          Sun Mar 18 2018 14:49:31 GMT+0900 (東京 (標準時))
+[debug] [2018-03-18T05:49:31.944Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-18T05:49:31.960Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-03-18T05:49:31.961Z] > authorizing via signed-in user
+[debug] [2018-03-18T05:49:31.962Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-03-18T05:49:31.963Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/szli-EWVNz9fnm_jsXCfGhSIvsj5fpv-LBYPzLV3JZ8',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Mar 18 2018 14:49:31 GMT+0900 (東京 (標準時))
+[debug] [2018-03-18T05:49:32.209Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-18T05:49:32.222Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/nico-op  
+  
+ Sun Mar 18 2018 14:49:32 GMT+0900 (東京 (標準時))
+[debug] [2018-03-18T05:49:33.476Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-18T05:49:33.477Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/nico-op/tokens  
+  
+ Sun Mar 18 2018 14:49:33 GMT+0900 (東京 (標準時))
+[debug] [2018-03-18T05:49:34.131Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-18T05:49:34.133Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/nico-op  
+  
+ Sun Mar 18 2018 14:49:34 GMT+0900 (東京 (標準時))
+[debug] [2018-03-18T05:49:35.081Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\xampp\htdocs\git\nico-op\example\firebase'...
+[info] 
+[debug] [2018-03-18T05:49:35.088Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/74099822861/clients/_:getWebAppConfig  
+  
+ Sun Mar 18 2018 14:49:35 GMT+0900 (東京 (標準時))
+[debug] [2018-03-18T05:49:36.043Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+
