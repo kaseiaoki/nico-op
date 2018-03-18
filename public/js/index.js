@@ -5,5 +5,5 @@ import { store } from './store.js';
 Vue.use(Vuex);
 
 new Vue({
-    el: '#app',
+  el: '#app',
 });

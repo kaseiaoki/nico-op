@@ -1,25 +1,25 @@
 export class ModelBase {
-    constructor(values = null) {
-        if (values) {
-            this.serialize(values);
-        }
+  constructor(values = null) {
+    if (values) {
+      this.serialize(values);
     }
+  }
 
-    get properties() {
-        return [];
-    }
+  get properties() {
+    return [];
+  }
 
-    serialize(values) {
-        this.properties.forEach(key => {
-            if (values[key] !== undefined) {
-                this[key] = values[key];
-            }
-        });
-    }
+  serialize(values) {
+    this.properties.forEach(key => {
+      if (values[key] !== undefined) {
+        this[key] = values[key];
+      }
+    });
+  }
 
-    deserialize() {
-        return this.properties.reduce((res, key) => {
-            res[key] = this[key];
-        }, {});
-    }
+  deserialize() {
+    return this.properties.reduce((res, key) => {
+      res[key] = this[key];
+    }, {});
+  }
 }
