@@ -8,14 +8,9 @@ new Vue({
     el: '#app',
     computed: {
     count () {
-	    return store.state.count
+	    return store.state.
     }
   },
   methods: {
-    increment () {
-      store.commit('increment')
-    },
-    decrement () {
-    	store.commit('decrement')
-    }
+  
 });
