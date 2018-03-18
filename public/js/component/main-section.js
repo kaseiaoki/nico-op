@@ -1,13 +1,16 @@
 Vue.component('main-section', {
   computed: {
-    ...Vuex.mapState(['smokes'])
+    ...Vuex.mapState(['smokes', 'setting'])
   },
   methods: {
-    ...Vuex.mapMutations(['addSmoke'])
+    ...Vuex.mapMutations(['addSmoke', 'openSettingModal'])
   },
   watch: {
     smokes: values => {
       console.debug('updated smokes', values);
+    },
+    setting: value => {
+      console.debug('updated setting', value);
     }
   },
   template: `
@@ -16,10 +19,10 @@ Vue.component('main-section', {
     <div class="hero-body">
       <div class="container has-text-centered">
         <div id="navbarMenuHeroB" class="navbar-menu is-quater is-offset-quauter">
-          <a class="button is-white is-inverted">
-                                 <span class="icon">
-                                 <i class="fa fa-cog"></i>
-                                 </span>
+          <a class="button is-white is-inverted" @click="openSettingModal">
+            <span class="icon">
+            <i class="fa fa-cog"></i>
+            </span>
             <span>setting</span>
           </a>
           <div class="modal">
